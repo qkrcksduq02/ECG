@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>QuestionListActivity.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #6aab73;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+QuestionListActivity.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com</span><span class="s2">.</span><span class="s1">example</span><span class="s2">.</span><span class="s1">ecg</span><span class="s2">;</span>
+
+<span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">os</span><span class="s2">.</span><span class="s1">Bundle</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">view</span><span class="s2">.</span><span class="s1">View</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">widget</span><span class="s2">.</span><span class="s1">Button</span><span class="s2">;</span>
+
+<span class="s0">import </span><span class="s1">androidx</span><span class="s2">.</span><span class="s1">annotation</span><span class="s2">.</span><span class="s1">Nullable</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">androidx</span><span class="s2">.</span><span class="s1">appcompat</span><span class="s2">.</span><span class="s1">app</span><span class="s2">.</span><span class="s1">AppCompatActivity</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">androidx</span><span class="s2">.</span><span class="s1">recyclerview</span><span class="s2">.</span><span class="s1">widget</span><span class="s2">.</span><span class="s1">LinearLayoutManager</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">androidx</span><span class="s2">.</span><span class="s1">recyclerview</span><span class="s2">.</span><span class="s1">widget</span><span class="s2">.</span><span class="s1">PagerSnapHelper</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">androidx</span><span class="s2">.</span><span class="s1">recyclerview</span><span class="s2">.</span><span class="s1">widget</span><span class="s2">.</span><span class="s1">RecyclerView</span><span class="s2">;</span>
+
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">ArrayList</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">List</span><span class="s2">;</span>
+
+<span class="s0">public class </span><span class="s1">QuestionListActivity </span><span class="s0">extends </span><span class="s1">AppCompatActivity </span><span class="s2">{</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">protected void </span><span class="s1">onCreate</span><span class="s2">(</span><span class="s1">@Nullable Bundle savedInstanceState</span><span class="s2">) {</span>
+        <span class="s0">super</span><span class="s2">.</span><span class="s1">onCreate</span><span class="s2">(</span><span class="s1">savedInstanceState</span><span class="s2">);</span>
+        <span class="s1">setContentView</span><span class="s2">(</span><span class="s1">R</span><span class="s2">.</span><span class="s1">layout</span><span class="s2">.</span><span class="s1">activity_question_list</span><span class="s2">);</span>
+
+        <span class="s1">RecyclerView questionsRecyclerView </span><span class="s2">= </span><span class="s1">findViewById</span><span class="s2">(</span><span class="s1">R</span><span class="s2">.</span><span class="s1">id</span><span class="s2">.</span><span class="s1">questionsRecyclerView</span><span class="s2">);</span>
+        <span class="s1">questionsRecyclerView</span><span class="s2">.</span><span class="s1">setLayoutManager</span><span class="s2">(</span><span class="s0">new </span><span class="s1">LinearLayoutManager</span><span class="s2">(</span><span class="s0">this</span><span class="s2">, </span><span class="s1">LinearLayoutManager</span><span class="s2">.</span><span class="s1">HORIZONTAL</span><span class="s2">, </span><span class="s0">false</span><span class="s2">));</span>
+
+        <span class="s1">List</span><span class="s2">&lt;</span><span class="s1">String</span><span class="s2">&gt; </span><span class="s1">questions </span><span class="s2">= </span><span class="s0">new </span><span class="s1">ArrayList</span><span class="s2">&lt;&gt;();</span>
+        <span class="s1">questions</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s3">&quot;1. 어떤 음식을 좋아하세요?&quot;</span><span class="s2">);</span>
+        <span class="s1">questions</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s3">&quot;2. 취미가 무엇인가요?&quot;</span><span class="s2">);</span>
+        <span class="s1">questions</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s3">&quot;3. 주말에 보통 무얼 하면서 보내세요?&quot;</span><span class="s2">);</span>
+        <span class="s1">questions</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s3">&quot;4. 최근에 재미있게 본 영화나 드라마가 있나요?&quot;</span><span class="s2">);</span>
+        <span class="s1">questions</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s3">&quot;5. 어떤 음악을 즐겨 들으세요?&quot;</span><span class="s2">);</span>
+        <span class="s1">questions</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s3">&quot;6. 여행을 좋아하시나요? 가보고 싶은 곳이 있으세요?&quot;</span><span class="s2">);</span>
+        <span class="s1">questions</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s3">&quot;7. 성격의 장단점을 하나씩 말해본다면?&quot;</span><span class="s2">);</span>
+        <span class="s1">questions</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s3">&quot;8. 스트레스는 어떻게 푸는 편이세요?&quot;</span><span class="s2">);</span>
+        <span class="s1">questions</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s3">&quot;9. 이상형이 어떻게 되시나요?&quot;</span><span class="s2">);</span>
+        <span class="s1">questions</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s3">&quot;10. 10년 뒤 자신의 모습은 어떨 것 같으세요?&quot;</span><span class="s2">);</span>
+
+        <span class="s1">QuestionAdapter adapter </span><span class="s2">= </span><span class="s0">new </span><span class="s1">QuestionAdapter</span><span class="s2">(</span><span class="s1">questions</span><span class="s2">);</span>
+        <span class="s1">questionsRecyclerView</span><span class="s2">.</span><span class="s1">setAdapter</span><span class="s2">(</span><span class="s1">adapter</span><span class="s2">);</span>
+
+        <span class="s1">PagerSnapHelper snapHelper </span><span class="s2">= </span><span class="s0">new </span><span class="s1">PagerSnapHelper</span><span class="s2">();</span>
+        <span class="s1">snapHelper</span><span class="s2">.</span><span class="s1">attachToRecyclerView</span><span class="s2">(</span><span class="s1">questionsRecyclerView</span><span class="s2">);</span>
+
+        <span class="s1">Button exitButton </span><span class="s2">= </span><span class="s1">findViewById</span><span class="s2">(</span><span class="s1">R</span><span class="s2">.</span><span class="s1">id</span><span class="s2">.</span><span class="s1">exitButton</span><span class="s2">);</span>
+        <span class="s1">exitButton</span><span class="s2">.</span><span class="s1">setOnClickListener</span><span class="s2">(</span><span class="s0">new </span><span class="s1">View</span><span class="s2">.</span><span class="s1">OnClickListener</span><span class="s2">() {</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">onClick</span><span class="s2">(</span><span class="s1">View v</span><span class="s2">) {</span>
+                <span class="s1">finish</span><span class="s2">();</span>
+            <span class="s2">}</span>
+        <span class="s2">});</span>
+    <span class="s2">}</span>
+<span class="s2">}</span></pre>
+</body>
+</html>
